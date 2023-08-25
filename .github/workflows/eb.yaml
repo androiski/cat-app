@@ -1,4 +1,7 @@
 name: Deploy React App from GitHub to AWS Elastic Beanstalk
+# run only one of this group, incase consective commits overlap and cause multiple workflows to occur. Deploy to EB does not like this.
+concurrency:
+  group: ${{ github.workflow }}
 on:
   # activates the workflow when there is a push on the master branch
   push:
