@@ -1,6 +1,6 @@
 FOLLOWING [Deploying React App to EBN](https://www.honeybadger.io/blog/deploying-react-to-elastic-beanstalk/)
 
-### [CLICK HERE](http://cat-app-dev.us-west-1.elasticbeanstalk.com/)
+# [CLICK HERE](http://cat-app-dev.us-west-1.elasticbeanstalk.com/)
 
 
 
@@ -12,6 +12,6 @@ FOLLOWING [Deploying React App to EBN](https://www.honeybadger.io/blog/deploying
 
 
 
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
