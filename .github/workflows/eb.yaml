@@ -42,7 +42,7 @@ jobs:
           application_name: cat-app
           environment_name: cat-app-dev
           version_label: "app-${{ steps.format-time.outputs.replaced }}"
-          region: us-west-2
+          region: us-west-1
           deployment_package: deploy-cat-app.zip
 
       - name: Deployed!
