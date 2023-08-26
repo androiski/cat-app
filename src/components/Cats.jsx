@@ -24,9 +24,14 @@ const Cats = () => {
             <div className="cat-app-container">
                 <h2>Get random cat images</h2>
                 <div className="image-container">
-                    <img src={cat} alt="Cat"/>
+                    <img src={cat} alt="Cat" />
+                    <div className="bottom-section">
+                    <div><button onClick={loadCats}>Find cat! </button></div>
+                    <p className="info">
+                        Andrew made this website for fun, cause he was trying to learn things.</p>
+                    <a href = "https://github.com/androiski/cat-app://www.tutorialspoint." target = "_self" className="hyperlink">https://github.com/androiski/cat-app</a>
+                    </div>
                 </div>
-                <button onClick={loadCats}>Fetch cat! </button>
             </div>
         </div>
     );
