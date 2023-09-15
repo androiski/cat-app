@@ -3,31 +3,31 @@ import '../styles/cats.css'
 
 
 function CatBreedDropdown() {
-    const [data, setData] = useState([]); //state variable to store JSON data
+    const [breed, setBreed] = useState([]); //state variable to store JSON data
     const [selectedOption, setSelectedOption] = useState('');  // State variable for selected option
 
     useEffect(() => {
         // Make an API request to fetch JSON data
         fetch('https://api.thecatapi.com/v1/breeds').then((res) => res.json()).then((jsonData) => {
-            setData(jsonData) // Update the state with the fetched data
+            setBreed(jsonData) // Update the state with the fetched data
             console.log('Data from JSON:', jsonData);
         })
             .catch((error) => {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching breed:', error);
 
             });
     }, []);
 
-    const handleSelectChange = (event) => {
+    const handleSelectBreedChange = (event) => {
         setSelectedOption(event.target.value); // Update the selected option state
     };
 
     return (
         <div>
             <label htmlFor="mySelect">Select a breed:</label>
-            <select id="mySelect" value={selectedOption} onChange={handleSelectChange}>
+            <select id="mySelect" value={selectedOption} onChange={handleSelectBreedChange}>
                 <option value="">Select an option</option>
-                {data.map((item) => (
+                {breed.map((item) => (
                     <option key={item.id} value={item.value}>
                         {item.name}
                     </option>
@@ -44,7 +44,7 @@ function CatBreedDropdown() {
 const Cats = () => {
     const loadCats = () => {
         setLoading(true)
-        fetch("https://api.thecatapi.com/v1/images/search")
+        fetch("https://api.thecatapi.com/v1/images/search?breed_ids=")
             .then((res) => res.json())
             .then((data) => {
                 setCat(data[0].url)
