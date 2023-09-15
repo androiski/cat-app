@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+import { Breed, TheCatAPI } from "@thatapicompany/thecatapi";
 import '../styles/cats.css'
+
+
+const theCatAPI = new TheCatAPI(process.env.REACT_APP_CATAPI_KEY);
 
 const Cats = () => {
     const loadCats = () => {

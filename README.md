@@ -2,15 +2,7 @@ FOLLOWING [Deploying React App to EBN](https://www.honeybadger.io/blog/deploying
 
 # [CLICK HERE](http://cat-app-dev.us-west-1.elasticbeanstalk.com/)
 
-
-
-
-
-
-
-
-
-
+Built using TheCatAPI
 
 ### Getting Started with Create React App
 
