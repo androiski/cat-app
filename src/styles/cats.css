@@ -51,6 +51,8 @@ img {
 }
 
 button {
+    width: 100px;
+    height: 40px;
     margin: 20px;
     padding: 10px;
     background-color: hsl(244, 80%, 60%);
