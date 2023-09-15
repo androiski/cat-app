@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TheCatAPI } from "@thatapicompany/thecatapi";
+import { Breed, TheCatAPI } from "@thatapicompany/thecatapi";
 import '../styles/cats.css'
 
 
