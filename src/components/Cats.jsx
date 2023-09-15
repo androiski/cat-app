@@ -71,19 +71,31 @@ const Cats = () => {
     return (
         <div>
             <div className="cat-app-container">
-                <h2>Get random cat images</h2>
-                <div className="image-container">
-                    <img src={cat} alt="Cat" />
+                {loading ? (
+                    <div>
+                        <h1>Loading...</h1>
+                        <p>Please wait while we fetch your cat!</p>
+                    </div>
+                ) : (
+                    <>
+                        <h2>Get random cat images</h2>
+                        <div className="image-container">
+                            <img src={cat} alt="Cat" />
+                        </div>
+                    </>
+                )}
                     <div className="bottom-section">
                         <CatBreedDropdown onSelectBreed={setSelectedBreedId} />
-                        <div><button onClick={handleFindCatClick}>Find cat! </button></div>
+                        <div><button onClick={handleFindCatClick}>
+                                {loading ? "Loading..." : "Find cat!"}
+                            </button></div>
                         <p className="info">
                             Andrew made this website for fun, cause he was trying to learn things.</p>
                         <a href="https://github.com/androiski/cat-app" target="_self" className="hyperlink">https://github.com/androiski/cat-app</a>
                     </div>
                 </div>
             </div>
-        </div>
+
     );
 }
 
