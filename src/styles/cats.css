@@ -9,6 +9,15 @@ h2 {
     font-family: 'Indie Flower', cursive;
 }
 
+label[for="catSelect"] {
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+}
+
+select {
+    font-family: 'Indie Flower', cursive;
+}
+
 .cat-app-container {
     display: flex;
     flex-direction: column;

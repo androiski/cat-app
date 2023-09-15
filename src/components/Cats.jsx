@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/cats.css'
 
 function CatBreedDropdown({ onSelectBreed }) {
-    const [breeds, setBreeds] = useState([]); // State variable to store JSON data
-    const [selectedBreedId, setSelectedBreedId] = useState('');  // State variable for selected breed ID
-    const [selectedBreedName, setSelectedBreedName] = useState('');  // State variable for selected breed name
+    const [breeds, setBreeds] = useState([]);
+    const [selectedBreedId, setSelectedBreedId] = useState('');
 
     useEffect(() => {
-        // Make an API request to fetch JSON data
         fetch('https://api.thecatapi.com/v1/breeds')
             .then((res) => res.json())
             .then((jsonData) => {
-                setBreeds(jsonData); // Update the state with the fetched data
+                setBreeds(jsonData);
             })
             .catch((error) => {
                 console.error('Error fetching breeds:', error);
@@ -20,24 +18,22 @@ function CatBreedDropdown({ onSelectBreed }) {
 
     const handleSelectBreedChange = (event) => {
         const selectedValue = event.target.value;
-        setSelectedBreedId(selectedValue); // Update the selected breed ID state
+        setSelectedBreedId(selectedValue);
         if (selectedValue === 'random') {
-            onSelectBreed(''); // Set the breed ID to an empty string for "Random" option
-            setSelectedBreedName('Random'); // Set the breed name to "Random"
+            onSelectBreed('');
         } else {
             const selectedBreed = breeds.find((breed) => breed.id === selectedValue);
             if (selectedBreed) {
-                setSelectedBreedName(selectedBreed.name); // Update the selected breed name state
-                onSelectBreed(selectedValue); // Call the callback function to update the selected breed ID in the parent component
+                onSelectBreed(selectedValue);
             }
         }
     };
 
     return (
         <div>
-            <label htmlFor="mySelect">Select a breed: </label>
-            <select id="mySelect" value={selectedBreedId} onChange={handleSelectBreedChange}>
-                <option value="random">Random</option> {/* "Random" option with an empty value */}
+            <label htmlFor="catSelect">Select a breed: </label>
+            <select id="catSelect" value={selectedBreedId} onChange={handleSelectBreedChange}>
+                <option value="random">Random</option>
                 {breeds.map((item) => (
                     <option key={item.id} value={item.id}>
                         {item.name}
@@ -55,7 +51,6 @@ const Cats = () => {
 
     const loadCats = () => {
         setLoading(true);
-        // Use the selectedBreedId in the API request URL
         const url = selectedBreedId === 'random' ?
             'https://api.thecatapi.com/v1/images/search' :
             `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreedId}`;
@@ -68,9 +63,10 @@ const Cats = () => {
             });
     }
 
-    useEffect(() => {
+    // Call loadCats only when the button is clicked
+    const handleFindCatClick = () => {
         loadCats();
-    }, [selectedBreedId]);
+    };
 
     return (
         <div>
@@ -80,7 +76,7 @@ const Cats = () => {
                     <img src={cat} alt="Cat" />
                     <div className="bottom-section">
                         <CatBreedDropdown onSelectBreed={setSelectedBreedId} />
-                        <div><button onClick={loadCats}>Find cat! </button></div>
+                        <div><button onClick={handleFindCatClick}>Find cat! </button></div>
                         <p className="info">
                             Andrew made this website for fun, cause he was trying to learn things.</p>
                         <a href="https://github.com/androiski/cat-app" target="_self" className="hyperlink">https://github.com/androiski/cat-app</a>
