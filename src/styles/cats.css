@@ -9,6 +9,15 @@ h2 {
     font-family: 'Indie Flower', cursive;
 }
 
+label[for="catSelect"] {
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+}
+
+select {
+    font-family: 'Indie Flower', cursive;
+}
+
 .cat-app-container {
     display: flex;
     flex-direction: column;
@@ -18,8 +27,8 @@ h2 {
 }
 
 .image-container {
-    width: 350px;
-    height: 350px;
+    width: 50%;
+    height: 50%;
     border: 3px solid rgb(128, 106, 106);
     border-radius: 5px;
 }
@@ -51,6 +60,8 @@ img {
 }
 
 button {
+    width: 100px;
+    height: 40px;
     margin: 20px;
     padding: 10px;
     background-color: hsl(244, 80%, 60%);
