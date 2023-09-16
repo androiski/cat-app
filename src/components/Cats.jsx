@@ -80,10 +80,11 @@ const Cats = () => {
                     <>
                         <h2>Get random cat images</h2>
                         <div className="image-container">
-                            <img src={cat} alt="Cat" />
+                            <img src={cat} alt="" />
                         </div>
                     </>
                 )}
+
                     <div className="bottom-section">
                         <CatBreedDropdown onSelectBreed={setSelectedBreedId} />
                         <div><button onClick={handleFindCatClick}>
